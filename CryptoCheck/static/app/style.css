@@ -51,20 +51,40 @@ body {
     background-color:white;
 }
 .logo {
-    width: 280px;
+	padding-top: 5px;
+    width: 200px;
 }
 .logo:hover {
     background-color: white;
     border-radius: 40px;
 }
 #navbar {
-    border-bottom: 1px solid black;
+	height: 75px;
+	width: 100%;
+    border-bottom: 1px solid rgb(177, 177, 177);
 }
 .container-fluid {
-    padding-top: 15px;
+	width: 95%;
+	margin-top: 25px;
+	background-color: #f8f9fa;
+	border: 1px solid rgb(177, 177, 177);
 }
 .container-fluid a {
     text-decoration: none;
+}
+
+/* COIN STYLE */
+#coins {
+
+}
+#coin {
+	margin-top: 30px;
+    margin-left: 0px;
+}
+#coin-price {
+	font-size: 15px;
+    text-align: center;
+    margin-top: 0.4rem;
 }
 #ethereum-icon {
 	width: 30px;
