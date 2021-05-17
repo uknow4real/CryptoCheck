@@ -2,12 +2,13 @@
 
 {% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     {% load static %} 
     <a class="navbar-brand" href="/"><img src="{% static 'app/media/cryptocheck.png' %}" alt="logo" class="logo"></a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Assets <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="#">Assets</a>
           <a class="nav-item nav-link" href="#">Features</a>
           <a class="nav-item nav-link" href="#">Pricing</a>
           <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -17,10 +18,33 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-</nav>
+  </nav>
+</header>
 <div class="container-fluid">
-    <div class="col-sm 8" id="coins" style="font-size:25px"></div>
+    <div class="col-md-8" id="coins" style="font-size:25px">
+      <span class="text-decoration-underline" style="color: black;">My Wallet</span>
+    </div>
+    <div class="form-floating" id="add-del-container">
+        <label for="coinlist" class="form-label text-decoration-underline" id="coinlist-label">Add/delete a coin:</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" list="datalistOptions" id="coinlist" placeholder="Enter coin">
+          <datalist id="datalistOptions">
+            <option value="Ethereum">
+            <option value="Bitcoin">
+            <option value="Dogecoin">
+            <option value="BitTorrent">
+            <option value="Safemoon">
+            <option value="ELONGATE">
+          </datalist>
+        </div>
+        <div class="col-md-8">
+          <input class="form-control" type="number" id="amount" placeholder="Amount">
+        </div>
+        <button type="button" class="btn btn-success" id="add-btn" onclick="addCoin()">Add</button>
+        <button type="button" class="btn btn-danger" id="delete-btn" onclick"deleteCoin()">Delete</button>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="{% static 'app/main.js' %}"></script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -29,3 +53,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 {% endblock content %}
+
+
+<!-- <div class="col-sm 8" id="wallet" style="font-size:25px; text-align: center;">
+  {% for wallet in wallets %}
+    <span>Wallet {{ wallet.id }}</span>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showBalance()">Show balance</button>
+    <span style="color: black; display: none;" id="balance">Balance: {{ wallet.amount }} {{ wallet.coin }}</span>
+  {% endfor %}
+</div> -->

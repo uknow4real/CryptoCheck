@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import requests
+from .models import Coin, Wallet
 
 # Create your views here.
 
@@ -13,4 +13,6 @@ def home_screen_view(request):
     #    'current_price': coins[1]['market_data']['current_price']['eur'],
     #    'id': coins[1]['id']
     #}
-    return render(request, "check/home.html", {})
+    coins = Coin.objects.all
+    wallets = Wallet.objects.all
+    return render(request, "check/home.html", {'coins':coins, 'wallets':wallets})
